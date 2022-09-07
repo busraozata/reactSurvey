@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Smooch&display=swap");
+@font-face {
+  font-family: "Amalfi Coast";
+  src: url("../../public/fonts/Amalfi-Coast.woff") format("woff2"), url("../../public/fonts/Amalfi-Coast.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Monera Calm";
+  src: url("../../public/fonts/MoneraCalm.woff2") format("woff2"), url("../../public/fonts/MoneraCalm.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Anybody";
+  src: url("../../public/fonts/Anybody-Regular.woff2") format("woff2"), url("../../public/fonts/Anybody-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Anybody";
+  src: url("../../public/fonts/Anybody-Medium.woff2") format("woff2"), url("../../public/fonts/Anybody-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Anybody";
+  src: url("../../public/fonts/Anybody-SemiBold.woff2") format("woff2"), url("../../public/fonts/Anybody-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Anybody";
+  src: url("../../public/fonts/Anybody-ExtraLight.woff2") format("woff2"), url("../../public/fonts/Anybody-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-brown: #7a3910;
+  --color-gray: #8e8e8e;
+  --color-gray-footer: #f7f7f7;
+  --color-dark-gray: #5e5e5e;
+  --color-white: #fff;
+  --color-gray-light: #f3f0f0;
+  --color-gray-2: #c3c4c5;
+  --color-black: #000;
+  --color-yellow: #e1c167;
+}
+/*# sourceMappingURL=variables.css.map */

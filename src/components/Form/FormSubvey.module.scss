@@ -1,0 +1,44 @@
+.survey {
+    padding: 7rem 0rem;
+    min-height: 70vh;
+    .formArea {
+        width: 100%;
+        .form {
+            max-width: 50rem;
+            width: 100%;
+            border: 1px solid var(--color-red);
+            border-radius: 10px;
+            padding: 4rem;
+            label {
+                margin: 1rem 0rem;
+            }
+            textarea {
+                resize: none;
+                border-radius: 0rem;
+                border: 0;
+                border-bottom: 1px solid var(--color-red);
+                padding: 0rem;
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+            button {
+                border: 1px solid var(--color-red);
+                padding: 0.8rem 2.5rem;
+                border-radius: 0;
+                font-size: 1.2rem;
+                font-weight: 500;
+                display: block;
+                margin-top: 2rem;
+
+                &.next {
+                    float: right;
+                }
+                &.prev {
+                    float: left;
+                }
+            }
+        }
+    }
+}

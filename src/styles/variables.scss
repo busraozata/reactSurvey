@@ -1,0 +1,32 @@
+@import "@fontsource/poppins";
+
+:root {
+    --color-white: #fff;
+    --color-black: #000;
+    --color-red: #f71911;
+}
+
+//responsive breakpoints
+@mixin breakpoint($size) {
+    @if $size == sm {
+        @media (max-width: 600px) {
+            @content;
+        }
+    } @else if $size == md {
+        @media (max-width: 768px) {
+            @content;
+        }
+    } @else if $size == lg {
+        @media (max-width: 991px) {
+            @content;
+        }
+    } @else if $size == xl {
+        @media (max-width: 1200px) {
+            @content;
+        }
+    } @else if $size == xxl {
+        @media (max-width: 1400px) {
+            @content;
+        }
+    }
+}

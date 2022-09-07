@@ -1,0 +1,39 @@
+@import "./reset.scss";
+@import "./variables.scss";
+@import "./mixin.scss";
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    width: 100%;
+    color: var(--white);
+    font-family: "Poppins", sans-serif !important;
+    background-color: var(--white);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#root {
+    height: 100%;
+}
+
+.error {
+    color: red;
+    margin: 0.5rem 0rem !important;
+    display: block;
+}
+.Toastify__toast-container--top-right {
+    top: inherit !important;
+    bottom: 4em;
+}

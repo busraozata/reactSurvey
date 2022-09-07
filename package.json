@@ -3,11 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^3.7.0",
+    "@fontsource/poppins": "^4.5.9",
+    "bootstrap": "^5.2.0",
     "cra-template": "1.2.0",
+    "emailjs": "^4.0.1",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.0.8",
+    "sass": "^1.54.8",
     "survey-core": "^1.9.47",
     "survey-react-ui": "^1.9.47",
     "yup": "^0.32.11"
