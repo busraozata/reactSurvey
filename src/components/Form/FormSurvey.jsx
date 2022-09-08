@@ -3,12 +3,34 @@ import React, { useState } from 'react';
 import * as yup from 'yup';
 import { Formik, Form, ErrorMessage } from 'formik';
 import style from "./FormSubvey.module.scss"
+import { useNavigate } from "react-router-dom";
 
 import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+let stepOneValidationSchema = yup.object().shape({
+    name: yup.string().required("Bu alan zorunlu"),
+    surname: yup.string().required("Bu alan zorunlu"),
+});
+
+let stepTwoValidationSchema = yup.object().shape({
+    answer1: yup.string().required("Bu alan zorunlu"),
+});
+
+
+let stepThreeValidationSchema = yup.object().shape({
+    answer2: yup.string().required("Bu alan zorunlu"),
+});
+
+let stepLastValidationSchema = yup.object().shape({
+    answer3: yup.string().required("Bu alan zorunlu"),
+});
+
 export default function FormSubvey() {
+
+    const navigate = useNavigate();
+
     const [data, setData] = useState({
         name: "",
         surname: "",
@@ -27,7 +49,8 @@ export default function FormSubvey() {
         emailjs.send('service_1ek8mru', 'template_5bn8ofk', formData, 'b_4ujO4HWlQQEYf-d')
             .then((response) => {
                 console.log('SUCCESS!', response.status, response.text);
-                toast.success("Başarılı");
+                navigate("/lastpage")
+                
             }, (err) => {
                 console.log('FAILED...', err);
                 toast.error("Hata !")
@@ -62,11 +85,6 @@ export default function FormSubvey() {
     )
 }
 
-let stepOneValidationSchema = yup.object().shape({
-    name: yup.string().required(),
-    surname: yup.string().required(),
-});
-
 const StepOne = (props) => {
     const handleSubmit = (values) => {
         props.next(values)
@@ -85,28 +103,26 @@ const StepOne = (props) => {
                             <Form className={`${style.form} d-flex flex-column justify-content-center`}>
 
                                 <div class="form-group mb-3">
-                                    <label for="name">Mesajınız</label>
-                                    <textarea name="name"
+                                    <label for="name">Ad</label>
+                                    <input name="name"
                                         value={formik.values.name}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
                                         className="form-control"
-                                        rows="7"
                                         id='name'
-                                    ></textarea>
+                                    />
                                     <span className='error'><ErrorMessage name='name' /></span>
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="surname">Mesajınız</label>
-                                    <textarea name="surname"
+                                    <label for="surname">Soyad</label>
+                                    <input name="surname"
                                         value={formik.values.surname}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
                                         className="form-control"
-                                        rows="7"
                                         id='surname'
-                                    ></textarea>
+                                    />
                                     <span className='error'><ErrorMessage name='surname' /></span>
                                 </div>
 
@@ -121,11 +137,6 @@ const StepOne = (props) => {
         </div>
     )
 }
-
-let stepTwoValidationSchema = yup.object().shape({
-    answer1: yup.string().required(),
-});
-
 
 const StepTwo = (props) => {
     const handleSubmit = (values) => {
@@ -171,11 +182,6 @@ const StepTwo = (props) => {
     )
 }
 
-let stepThreeValidationSchema = yup.object().shape({
-    answer2: yup.string().required(),
-});
-
-
 const StepThree = (props) => {
     const handleSubmit = (values) => {
         props.next(values)
@@ -220,12 +226,6 @@ const StepThree = (props) => {
     )
 }
 
-
-let stepLastValidationSchema = yup.object().shape({
-    answer3: yup.string().required(),
-});
-
-
 const StepLast = (props) => {
     const handleSubmit = (values) => {
         props.next(values, true)
@@ -258,7 +258,7 @@ const StepLast = (props) => {
 
                                 <div>
                                     <button type='button' onClick={() => props.prev(formik.values)} className={`${style.prev} btn`}>Önceki</button>
-                                    <button type='submit' className={`btn ${style.next}`} >Gönder</button>
+                                    <button type='submit' className={`btn ${style.next}`}>Gönder</button>
                                 </div>
                             </Form>
                         )}
@@ -269,3 +269,4 @@ const StepLast = (props) => {
         </div >
     )
 }
+

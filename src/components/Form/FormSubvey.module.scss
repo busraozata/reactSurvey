@@ -1,36 +1,110 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixin.scss";
 .survey {
-    padding: 7rem 0rem;
-    min-height: 70vh;
     .formArea {
         width: 100%;
         .form {
             max-width: 50rem;
             width: 100%;
-            border: 1px solid var(--color-red);
+
+            background-color: rgba(0, 0, 0, 0.329);
             border-radius: 10px;
             padding: 4rem;
+            @include breakpoint(sm) {
+                padding: 2rem 1rem;
+            }
             label {
                 margin: 1rem 0rem;
+                color: var(--color-white);
+            }
+            h5 {
+                color: var(--color-white);
+                font-weight: 500;
+                font-size: 1.3rem;
+            }
+            input {
+                padding: 1rem 0rem !important;
+            }
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover, 
+            input:-webkit-autofill:focus,
+            textarea:-webkit-autofill,
+            textarea:-webkit-autofill:hover,
+            textarea:-webkit-autofill:focus,
+            select:-webkit-autofill,
+            select:-webkit-autofill:hover,
+            select:-webkit-autofill:focus {
+              border: none;
+              -webkit-text-fill-color: white;
+              -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
+              transition: background-color 5000s ease-in-out 0s;
+            }
+            input[type="text"] {
+                border: none !important;
+                background-color: transparent !important;
+            }
+            input,
+            textarea {
+                border-radius: 0rem;
+                border: 0;
+                border-bottom: 1px solid var(--color-white) !important;
+                padding: 0rem;
+                background-color: transparent;
+                color: var(--color-white) !important;
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                    background-color: transparent !important;
+                }
             }
             textarea {
                 resize: none;
                 border-radius: 0rem;
                 border: 0;
-                border-bottom: 1px solid var(--color-red);
-                padding: 0rem;
-                &:focus {
-                    outline: none;
-                    box-shadow: none;
-                }
             }
             button {
-                border: 1px solid var(--color-red);
-                padding: 0.8rem 2.5rem;
-                border-radius: 0;
-                font-size: 1.2rem;
-                font-weight: 500;
-                display: block;
-                margin-top: 2rem;
+                position: relative;
+                margin: 0 auto;
+                border: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.5rem 0.8rem;
+                font-size: 1.3rem;
+                color: var(--color-white);
+                @include breakpoint(sm) {
+                    font-size: 1rem;
+                }
+                &::before,
+                &::after {
+                    content: "";
+                    transition: 0.3s all;
+                }
+
+                &::before {
+                    position: absolute;
+                    width: 100%;
+                    height: 0px;
+                    top: 0px;
+                    border-top: 3px solid var(--color-white);
+                    border-right: 3px solid var(--color-white);
+                    border-left: 3px solid var(--color-white);
+                }
+                &::after {
+                    position: absolute;
+                    margin: 0 auto;
+                    width: 100%;
+                    height: 0px;
+                    bottom: 0px;
+                    border-bottom: 3px solid var(--color-white);
+                    border-right: 3px solid var(--color-white);
+                    border-left: 3px solid var(--color-white);
+                }
+
+                &:hover::before,
+                &:hover::after {
+                    height: 40%;
+                }
 
                 &.next {
                     float: right;

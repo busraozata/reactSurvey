@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixin.scss";
 .banner {
     z-index: 99;
     &::before {
@@ -5,7 +7,7 @@
         height: 100%;
         width: 100%;
         position: absolute;
-        background-color: rgba(0, 0, 0, 0.274);
+        background-color: rgba(0, 0, 0, 0.699);
         z-index: -1;
     }
     h1 {
@@ -13,5 +15,12 @@
         font-size: 3rem;
         color: var(--color-white);
         margin-bottom: 3rem !important;
+        @media screen and (max-width:1024px) {
+            font-size: 2rem;
+        }
+        @include breakpoint(lg){
+            font-size: 1.5rem;
+        }
+      
     }
 }
