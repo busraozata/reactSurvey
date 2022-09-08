@@ -1,31 +1,13 @@
 
 import React, { useState } from 'react';
-import * as yup from 'yup';
 import { Formik, Form, ErrorMessage } from 'formik';
 import style from "./FormSubvey.module.scss"
 import { useNavigate } from "react-router-dom";
-
 import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-let stepOneValidationSchema = yup.object().shape({
-    name: yup.string().required("Bu alan zorunlu"),
-    surname: yup.string().required("Bu alan zorunlu"),
-});
-
-let stepTwoValidationSchema = yup.object().shape({
-    answer1: yup.string().required("Bu alan zorunlu"),
-});
-
-
-let stepThreeValidationSchema = yup.object().shape({
-    answer2: yup.string().required("Bu alan zorunlu"),
-});
-
-let stepLastValidationSchema = yup.object().shape({
-    answer3: yup.string().required("Bu alan zorunlu"),
-});
+import { stepOneValidationSchema, stepTwoValidationSchema, stepThreeValidationSchema, stepLastValidationSchema } from "../../validation";
 
 export default function FormSubvey() {
 
@@ -50,7 +32,7 @@ export default function FormSubvey() {
             .then((response) => {
                 console.log('SUCCESS!', response.status, response.text);
                 navigate("/lastpage")
-                
+
             }, (err) => {
                 console.log('FAILED...', err);
                 toast.error("Hata !")
@@ -114,8 +96,9 @@ const StepOne = (props) => {
                                     <span className='error'><ErrorMessage name='name' /></span>
                                 </div>
 
+
                                 <div class="form-group mb-3">
-                                    <label for="surname">Soyad</label>
+                                    <label htmlFor="surname">Soyad</label>
                                     <input name="surname"
                                         value={formik.values.surname}
                                         onChange={formik.handleChange}
