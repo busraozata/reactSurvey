@@ -28,9 +28,12 @@ export default function FormSubvey() {
 
     const makeRequest = (formData) => {
         console.log("Form Submitted", formData);
+
         emailjs.send('service_1ek8mru', 'template_5bn8ofk', formData, 'b_4ujO4HWlQQEYf-d')
             .then((response) => {
+
                 console.log('SUCCESS!', response.status, response.text);
+
                 navigate("/lastpage")
 
             }, (err) => {
@@ -84,8 +87,8 @@ const StepOne = (props) => {
                         {(formik) => (
                             <Form className={`${style.form} d-flex flex-column justify-content-center`}>
 
-                                <div class="form-group mb-3">
-                                    <label for="name">Ad</label>
+                                <div className="form-group mb-3">
+                                    <label htmlFor="name">Ad</label>
                                     <input name="name"
                                         value={formik.values.name}
                                         onChange={formik.handleChange}
@@ -97,7 +100,7 @@ const StepOne = (props) => {
                                 </div>
 
 
-                                <div class="form-group mb-3">
+                                <div className="form-group mb-3">
                                     <label htmlFor="surname">Soyad</label>
                                     <input name="surname"
                                         value={formik.values.surname}
@@ -137,9 +140,9 @@ const StepTwo = (props) => {
                         {(formik) => (
                             <Form className={`${style.form} d-flex flex-column justify-content-center`}>
 
-                                <div class="form-group mb-3">
+                                <div className="form-group mb-3">
                                     <h5>{formik.values.question1}</h5>
-                                    <label for="answer1">Mesajınız</label>
+                                    <label htmlFor="answer1">Mesajınız</label>
                                     <textarea name="answer1"
                                         value={formik.values.answer1}
                                         onChange={formik.handleChange}
@@ -181,9 +184,9 @@ const StepThree = (props) => {
                         {(formik) => (
                             <Form className={`${style.form} d-flex flex-column justify-content-center`}>
 
-                                <div class="form-group mb-3">
+                                <div className="form-group mb-3">
                                     <h5>{formik.values.question2}</h5>
-                                    <label for="answer2">Mesajınız</label>
+                                    <label htmlFor="answer2">Mesajınız</label>
                                     <textarea name="answer2"
                                         value={formik.values.answer2}
                                         onChange={formik.handleChange}
@@ -225,9 +228,9 @@ const StepLast = (props) => {
                         {(formik) => (
                             <Form className={`${style.form} d-flex flex-column justify-content-center`}>
 
-                                <div class="form-group mb-3">
+                                <div className="form-group mb-3">
                                     <h5>{formik.values.question3}</h5>
-                                    <label for="answer3">Mesajınız</label>
+                                    <label htmlFor="answer3">Mesajınız</label>
                                     <textarea name="answer3"
                                         value={formik.values.answer3}
                                         onChange={formik.handleChange}
